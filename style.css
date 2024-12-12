@@ -3,7 +3,7 @@ body {
     margin: 0;
     padding: 0;
     line-height: 1.6;
-    background-color: #75b5edeb;
+    background-color: rgb(97, 176, 240);
     color: #333;
 }
 
@@ -11,7 +11,7 @@ body {
     max-width: 800px;
     margin: 20px auto;
     padding: 20px;
-    background: #fff;
+    background: #75b5edeb;
     border: 1px solid #ddd;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
