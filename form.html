@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration Form</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <div class="form-container">
+        <h1>Registration Form</h1>
+        <form id="registrationForm">
+            
+            <div class="form-group">
+                <label for="firstName">First Name:</label>
+                <input type="text" id="firstName" maxlength="25" required>
+            </div>
+            <div class="form-group">
+                <label for="lastName">Last Name:</label>
+                <input type="text" id="lastName" maxlength="25" required>
+            </div>
+
+            
+            <div class="form-group">
+                <label>Gender:</label>
+                <input type="radio" name="gender" value="Male" required> Male
+                <input type="radio" name="gender" value="Female" required> Female
+                <input type="radio" name="gender" value="Other" required> Other
+            </div>
+
+            
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" required>
+            </div>
+
+            
+            <div class="form-group">
+                <label>Interests:</label>
+                <input type="checkbox" name="interest" value="Sports"> Sports
+                <input type="checkbox" name="interest" value="Music"> Music
+                <input type="checkbox" name="interest" value="Reading"> Reading
+                <input type="checkbox" name="interest" value="Travel"> Travel
+            </div>
+
+            
+            <div class="form-group">
+                <label for="qualification">Qualification:</label>
+                <select id="qualification" required>
+                    <option value="">Select</option>
+                    <option value="High School">High School</option>
+                    <option value="Bachelor's">Bachelor's</option>
+                    <option value="Master's">Master's</option>
+                    <option value="PhD">PhD</option>
+                </select>
+            </div>
+
+            
+            <div class="form-group">
+                <label for="image">Upload Image:</label>
+                <input type="file" id="image" accept="image/*" required>
+            </div>
+
+        
+            <div class="form-group">
+                <label for="comments">Comments:</label>
+                <textarea id="comments" rows="4" required></textarea>
+            </div>
+
+            
+            <div class="button-container">
+                <button type="submit">Submit</button>
+                <button type="reset">Reset</button>
+                <button type="button" onclick="window.close()">Cancel</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('registrationForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const email = document.getElementById('email').value;
+            const qualification = document.getElementById('qualification').value;
+            const image = document.getElementById('image').files[0];
+            const comments = document.getElementById('comments').value;
+            const gender = document.querySelector('input[name="gender"]:checked');
+            const interests = document.querySelectorAll('input[name="interest"]:checked');
+
+            if (!firstName || !lastName || !email || !gender || !qualification || !image || !comments || interests.length === 0) {
+                alert('All fields are required!');
+                return;
+            }
+
+            if (!email.includes('@')) {
+                alert('Invalid email address!');
+                return;
+            }
+
+        
+            alert('Successfully Registered!');
+            window.location.href = 'success.html';
+        });
+    </script>
+</body>
+</html>
